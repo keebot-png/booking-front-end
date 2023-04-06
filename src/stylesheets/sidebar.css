@@ -12,14 +12,14 @@
 
 .sidebar a {
   display: block;
-  color: #7400b8;
+  color: white;
   text-decoration: none;
   font-weight: 600;
 }
 
 .sidebar a:hover {
-  background-color: #7400b8;
-  color: white;
+  background-color: white;
+  color: #7400b8;
 }
 
 @media (min-width: 768px) {
@@ -30,10 +30,10 @@
     margin: 0;
     padding: 0;
     width: 200px;
-    border-right: 1px solid #f1f1f1;
     position: fixed;
     height: 100%;
     overflow: auto;
+    background-color: #7400b8;
   }
 
   .sidebar li {
