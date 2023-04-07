@@ -66,6 +66,8 @@
 
 .sidebar-footer small {
   font-size: 10px;
+  display: block;
+  padding: 10px;
 }
 
 .mobile-menu-container {
