@@ -1,7 +1,29 @@
-export default function App() {
+import React from 'react';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import HomePage from './components/Homepage';
+import MyBookings from './components/MyBookings';
+import Teachers from './components/Teachers';
+import BookingForm from './components/BookingForm';
+import Sidebar from './components/Sidebar';
+import './stylesheets/sidebar.css';
+import './stylesheets/App.css';
+
+function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <>
+      <BrowserRouter>
+        <Sidebar />
+        <div className="body">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/my-bookings" element={<MyBookings />} />
+            <Route path="/booking-form" element={<BookingForm />} />
+            <Route path="/teachers" element={<Teachers />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </>
   );
 }
+
+export default App;
