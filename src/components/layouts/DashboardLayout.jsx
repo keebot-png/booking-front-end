@@ -1,29 +1,28 @@
-import { useEffect } from "react";
-import { Outlet } from "react-router-dom";
-import Sidebar from "../Sidebar";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import Sidebar from '../Sidebar';
 
 function DashboardLayout() {
   const navigate = useNavigate();
   useEffect(() => {
-    const authUser = localStorage.getItem("authToken")
+    const authUser = localStorage.getItem('authToken');
     if (!authUser) {
-      navigate("/")
+      navigate('/');
     }
-  })
+  });
 
   const handlelogout = () => {
     axios
-      .delete("http://localhost:3000/users/sign_out", {
+      .delete('http://localhost:3000/users/sign_out', {
         headers: {
-          "Content-Type": "application/json",
-          Authorization: window.localStorage.getItem("authToken"),
+          'Content-Type': 'application/json',
+          Authorization: window.localStorage.getItem('authToken'),
         },
       })
-      .then((response) => {
-        window.localStorage.removeItem("authToken");
-        navigate("/");
+      .then(() => {
+        window.localStorage.removeItem('authToken');
+        navigate('/');
       });
   };
 

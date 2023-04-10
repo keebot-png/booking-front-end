@@ -1,8 +1,7 @@
-import { useRef } from "react";
-import { NavLink, Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 const RegisterForm = () => {
   const navigate = useNavigate();
@@ -12,15 +11,13 @@ const RegisterForm = () => {
     watch,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: "onBlur" });
+  } = useForm({ mode: 'onBlur' });
   const password = useRef({});
-  password.current = watch("password", "");
+  password.current = watch('password', '');
   const onSubmit = (data) => {
-    console.log(data);
-
     axios
       .post(
-        "http://localhost:3000/users",
+        'http://localhost:3000/users',
         {
           user: {
             name: data.username,
@@ -30,16 +27,16 @@ const RegisterForm = () => {
         },
         {
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        }
+        },
       )
       .then((response) => {
         window.localStorage.setItem(
-          "authToken",
-          response.headers.authorization
+          'authToken',
+          response.headers.authorization,
         );
-        navigate("/dashboard");
+        navigate('/dashboard');
       });
   };
 
@@ -54,7 +51,7 @@ const RegisterForm = () => {
             <input
               type="text"
               name="username"
-              {...register("username", { required: true })}
+              {...register('username', { required: true })}
               className="flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent"
               placeholder="Username"
             />
@@ -63,7 +60,7 @@ const RegisterForm = () => {
             <input
               type="text"
               name="email"
-              {...register("email", { required: true })}
+              {...register('email', { required: true })}
               className="flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent"
               placeholder="Email"
             />
@@ -73,7 +70,7 @@ const RegisterForm = () => {
             <input
               type="password"
               name="password"
-              {...register("password", { required: true })}
+              {...register('password', { required: true })}
               className="flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent"
               placeholder="Password"
             />
@@ -83,9 +80,8 @@ const RegisterForm = () => {
             <input
               type="password"
               name="confirmation"
-              {...register("password_confirmation", {
-                validate: (value) =>
-                  value === password.current || "The passwords do not match",
+              {...register('password_confirmation', {
+                validate: (value) => value === password.current || 'The passwords do not match',
               })}
               className="flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent"
               placeholder="Confirm Password"

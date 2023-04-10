@@ -1,11 +1,9 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import axios from "axios";
+import React from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 const LoginForm = () => {
-  
   const navigate = useNavigate();
   const {
     register,
@@ -16,21 +14,20 @@ const LoginForm = () => {
   const onSubmit = (data) => {
     axios
       .post(
-        "http://localhost:3000/users/sign_in",
+        'http://localhost:3000/users/sign_in',
         { user: data },
         {
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
-        }
+        },
       )
       .then((response) => {
         window.localStorage.setItem(
-          "authToken",
-          response.headers.authorization
+          'authToken',
+          response.headers.authorization,
         );
-       navigate("/dashboard")
-       
+        navigate('/dashboard');
       });
   };
 
@@ -45,7 +42,7 @@ const LoginForm = () => {
             <input
               type="text"
               name="email"
-              {...register("email")}
+              {...register('email')}
               placeholder="Email"
               className="flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent"
             />
@@ -54,13 +51,14 @@ const LoginForm = () => {
             <input
               type="password"
               name="password"
-              {...register("password")}
+              {...register('password')}
               placeholder="password"
               className="flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent"
             />
+            {errors.password && <span>This field is required</span>}
+
           </div>
           <div>
-            <label></label>
             <button
               className="w-full px-4 py-2 text-base font-semibold text-center text-white transition duration-200 ease-in rounded-lg shadow-md disabled:opacity-50 bg-lime-800 enabled:hover:bg-lime-500"
               type="submit"
