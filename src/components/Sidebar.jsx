@@ -31,7 +31,6 @@ const Sidebar = () => {
               <li><NavLink to="/dashboard">Home</NavLink></li>
               <li><NavLink to="/my-bookings">My Bookings</NavLink></li>
               <li><NavLink to="/booking-form">Booking Form</NavLink></li>
-              <li><NavLink to="/teachers">Teachers</NavLink></li>
             </div>
           ) : ''}
       </div>
