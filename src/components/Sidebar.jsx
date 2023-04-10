@@ -28,7 +28,7 @@ const Sidebar = () => {
         {nav
           ? (
             <div className="mobile-menu-nav">
-              <li><NavLink to="/">Home</NavLink></li>
+              <li><NavLink to="/dashboard">Home</NavLink></li>
               <li><NavLink to="/my-bookings">My Bookings</NavLink></li>
               <li><NavLink to="/booking-form">Booking Form</NavLink></li>
               <li><NavLink to="/teachers">Teachers</NavLink></li>
@@ -40,7 +40,7 @@ const Sidebar = () => {
           <span className="material-symbols-outlined logo">menu_book</span>
         </div>
         <ul>
-          <li><NavLink to="/">Home</NavLink></li>
+          <li><NavLink to="/dashboard">Home</NavLink></li>
           <li><NavLink to="/my-bookings">My Bookings</NavLink></li>
           <li><NavLink to="/booking-form">Booking Form</NavLink></li>
           <li><NavLink to="/teachers">Teachers</NavLink></li>
