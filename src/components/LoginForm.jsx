@@ -1,15 +1,15 @@
-import { useDispatch, useSelector } from "react-redux";
-import { Navigate, NavLink, useLocation } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { loginUserAsync } from "../features/auth/authSlice";
-import useAuth from "../hooks/useAuth";
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate, NavLink, useLocation } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { loginUserAsync } from '../features/auth/authSlice';
+import useAuth from '../hooks/useAuth';
 
 const LoginForm = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const token = useAuth();
   const isLoggingIn = useSelector((state) => state.auth.isLoading);
-  
+
   const {
     register,
     handleSubmit,
@@ -35,7 +35,7 @@ const LoginForm = () => {
             <input
               type="text"
               name="email"
-              {...register("email")}
+              {...register('email')}
               placeholder="Email"
               className="flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent"
             />
@@ -44,7 +44,7 @@ const LoginForm = () => {
             <input
               type="password"
               name="password"
-              {...register("password")}
+              {...register('password')}
               placeholder="password"
               className="flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent"
             />
@@ -56,7 +56,7 @@ const LoginForm = () => {
               type="submit"
               disabled={isLoggingIn}
             >
-              {isLoggingIn ? "Signing in..." : "Login"}
+              {isLoggingIn ? 'Signing in...' : 'Login'}
             </button>
           </div>
         </form>

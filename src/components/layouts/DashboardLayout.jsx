@@ -1,8 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
-import { Navigate, Outlet, useLocation } from "react-router-dom";
-import Sidebar from "../Sidebar";
-import { signOutUserAsync } from "../../features/auth/authSlice";
-import useAuth from "../../hooks/useAuth";
+import { useDispatch } from 'react-redux';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
+import Sidebar from '../Sidebar';
+import { signOutUserAsync } from '../../features/auth/authSlice';
+import useAuth from '../../hooks/useAuth';
 
 function DashboardLayout() {
   const token = useAuth();

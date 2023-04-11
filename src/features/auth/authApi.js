@@ -1,10 +1,9 @@
-import axiosInstance from "../../axiosConfig";
+import axiosInstance from '../../axiosConfig';
 
 function registerUser(data) {
-console.log("axiosInstance:",axiosInstance.defaults.headers.common.Authorization)
   const { username, email, password } = data;
 
-  return axiosInstance.post("/users", {
+  return axiosInstance.post('/users', {
     user: {
       name: username,
       email,
@@ -14,13 +13,11 @@ console.log("axiosInstance:",axiosInstance.defaults.headers.common.Authorization
 }
 
 function loginUser(data) {
-    console.log("axiosInstance:",axiosInstance.defaults.headers.common.Authorization)
-  return axiosInstance.post("/users/sign_in", { user: data })
+  return axiosInstance.post('/users/sign_in', { user: data });
 }
 
 function signOutUser() {
-    console.log("axiosInstance:",axiosInstance.defaults.headers.common.Authorization)
-  return axiosInstance.delete("/users/sign_out")
+  return axiosInstance.delete('/users/sign_out');
 }
 
 export default {

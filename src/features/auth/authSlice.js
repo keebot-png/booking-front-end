@@ -1,49 +1,48 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import authApi from "./authApi";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import authApi from './authApi';
 
 export const registerUserAsync = createAsyncThunk(
-  "auth/registerUser",
+  'auth/registerUser',
   async (data) => {
     const response = await authApi.registerUser(data);
-    const authToken = response.headers.authorization
-    window.localStorage.setItem("authToken", authToken);
+    const authToken = response.headers.authorization;
+    window.localStorage.setItem('authToken', authToken);
 
     // The value we return becomes the `fulfilled` action payload
     return authToken;
-  }
+  },
 );
 
 export const loginUserAsync = createAsyncThunk(
-  "auth/loginUser",
+  'auth/loginUser',
   async (data) => {
     const response = await authApi.loginUser(data);
-    const authToken = response.headers.authorization
-    window.localStorage.setItem("authToken", authToken);
+    const authToken = response.headers.authorization;
+    window.localStorage.setItem('authToken', authToken);
 
     // The value we return becomes the `fulfilled` action payload
     return authToken;
-  }
+  },
 );
 
 export const signOutUserAsync = createAsyncThunk(
-  "auth/signOutUser",
+  'auth/signOutUser',
   async () => {
-    const response = await authApi.signOutUser();
-    window.localStorage.removeItem("authToken");
+    await authApi.signOutUser();
+    window.localStorage.removeItem('authToken');
 
     // The value we return becomes the `fulfilled` action payload
-    return;
-  }
+  },
 );
 
 const initialState = {
   error: null,
   isLoading: false,
-  token: window.localStorage.getItem('authToken')
+  token: window.localStorage.getItem('authToken'),
 };
 
 const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   reducers: {
     updateStatus: (state, action) => {
@@ -67,7 +66,7 @@ const authSlice = createSlice({
       })
       .addCase(loginUserAsync.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.token = action.payload
+        state.token = action.payload;
       })
       .addCase(loginUserAsync.rejected, (state) => {
         state.isLoading = false;
@@ -82,6 +81,6 @@ const authSlice = createSlice({
   },
 });
 
-export const {updateStatus} = authSlice.actions;
+export const { updateStatus } = authSlice.actions;
 
 export default authSlice.reducer;
