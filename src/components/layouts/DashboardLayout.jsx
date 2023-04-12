@@ -1,30 +1,21 @@
-import { useEffect } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import Sidebar from '../Sidebar';
+import { signOutUserAsync } from '../../features/auth/authSlice';
+import useAuth from '../../hooks/useAuth';
 
 function DashboardLayout() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    const authUser = localStorage.getItem('authToken');
-    if (!authUser) {
-      navigate('/');
-    }
-  });
+  const token = useAuth();
+  const location = useLocation();
+  const dispatch = useDispatch();
 
   const handlelogout = () => {
-    axios
-      .delete('http://localhost:3000/users/sign_out', {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: window.localStorage.getItem('authToken'),
-        },
-      })
-      .then(() => {
-        window.localStorage.removeItem('authToken');
-        navigate('/');
-      });
+    dispatch(signOutUserAsync());
   };
+
+  if (!token) {
+    return <Navigate to="/" replace state={{ from: location }} />;
+  }
 
   return (
     <>

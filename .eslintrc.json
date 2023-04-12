@@ -20,10 +20,13 @@
       "import/no-unresolved": "off",
       "no-shadow": "off",
       "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
-      "react/jsx-props-no-spreading": "off"
+      "react/jsx-props-no-spreading": "off",
+      "import/no-cycle": "off",
+      "no-param-reassign": ["error", { "props": false }]
     },
     "ignorePatterns": [
       "dist/",
       "build/"
     ]
   }
+

@@ -1,11 +1,16 @@
+import cn from 'classnames';
 import { useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUserAsync } from '../features/auth/authSlice';
+import useAuth from '../hooks/useAuth';
 
 const RegisterForm = () => {
-  const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const token = useAuth();
+  const isRegistering = useSelector((state) => state.auth.isLoading);
   const {
     register,
     watch,
@@ -14,31 +19,14 @@ const RegisterForm = () => {
   } = useForm({ mode: 'onBlur' });
   const password = useRef({});
   password.current = watch('password', '');
+
   const onSubmit = (data) => {
-    axios
-      .post(
-        'http://localhost:3000/users',
-        {
-          user: {
-            name: data.username,
-            email: data.email,
-            password: data.password,
-          },
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        },
-      )
-      .then((response) => {
-        window.localStorage.setItem(
-          'authToken',
-          response.headers.authorization,
-        );
-        navigate('/dashboard');
-      });
+    dispatch(registerUserAsync(data));
   };
+
+  if (token) {
+    return <Navigate to="/dashboard" replace state={{ from: location }} />;
+  }
 
   return (
     <div className="w-full px-5 py-24 text-gray-600 justify-self-center bg-lime-400 sm:justify-self-end sm:py-16 min-h-screen">
@@ -65,7 +53,6 @@ const RegisterForm = () => {
               placeholder="Email"
             />
           </div>
-
           <div className="mb-2">
             <input
               type="password"
@@ -93,9 +80,13 @@ const RegisterForm = () => {
           <div className="flex items-center justify-between mt-4">
             <button
               type="submit"
-              className="w-full px-4 py-2 text-base font-semibold text-center text-white transition duration-200 ease-in rounded-lg shadow-md disabled:opacity-50 bg-lime-800 focus:ring-lime-400 focus:ring-offset-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 enabled:disabled:hover:bg-lime-500"
+              className={cn(
+                'w-full px-4 py-2 text-base font-semibold text-center text-white transition duration-200 ease-in rounded-lg shadow-md bg-lime-800 focus:ring-lime-400 focus:ring-offset-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 enabled:disabled:hover:bg-lime-500',
+                { 'disabled:opacity-50': isRegistering },
+              )}
+              disabled={isRegistering}
             >
-              Signup
+              {isRegistering ? 'Creating account...' : 'Signup'}
             </button>
           </div>
         </form>
