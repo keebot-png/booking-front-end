@@ -14,6 +14,7 @@ import './stylesheets/sidebar.css';
 import './stylesheets/index.css';
 import './stylesheets/App.css';
 import './stylesheets/course.css';
+import './stylesheets/bookingform.css';
 
 export const AuthContext = createContext(null);
 
