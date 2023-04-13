@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import addReservations from '../features/reservations/reservationPost';
+import { useNavigate } from 'react-router';
+import { addReservations } from '../features/reservations/reservationPost';
 
 const BookingForm = ({ teacherInfo, courseInfo }) => {
   const [startDate, setStartDate] = useState(new Date());
@@ -21,9 +22,13 @@ const BookingForm = ({ teacherInfo, courseInfo }) => {
 
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const reservation = {
+      course_name: courseInfo.title,
+      teacher_name: teacherInfo.name,
       day: startDate,
       times: checkboxes,
       course_id: courseInfo.id,
@@ -32,7 +37,12 @@ const BookingForm = ({ teacherInfo, courseInfo }) => {
 
     // console.log(reservation)
 
+    //   dispatch(addReservations(reservation));
+    //   navigate('/my-bookings', { state: [reservation.course_id, reservation.teacher_id] });
+    // };
+
     dispatch(addReservations(reservation));
+    navigate('/my-bookings');
   };
 
   return (
