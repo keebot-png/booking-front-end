@@ -1,23 +1,3 @@
-// import { createSlice } from '@reduxjs/toolkit';
-// import getCourses from './courseApi';
-
-// const initialState = {
-//   courses: [],
-// };
-
-// const courseSlice = createSlice({
-//   name: 'courses',
-//   initialState,
-//   extraReducers: (builder) => {
-//     builder.addCase(getCourses.fulfilled, (state, action) => ({
-//       ...state,
-//       courses: action.payload,
-//     }));
-//   },
-// });
-
-// export default courseSlice.reducer;
-
 import { createSlice } from '@reduxjs/toolkit';
 import { getCourses } from './courseApi';
 
