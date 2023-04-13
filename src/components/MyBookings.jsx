@@ -1,7 +1,10 @@
-// import React, { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useDispatch, useSelector } from "react-redux";
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  fetchReservations,
+  deleteReservations,
+} from '../features/reservations/reservationPost';
+import { getCourses } from '../features/courses/courseApi';
 
 // import {
 //   deleteReservations,
@@ -9,17 +12,22 @@ import { useSelector } from 'react-redux';
 // } from "../features/reservations/reservationSlice";
 
 const MyBookings = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const reservations = useSelector((state) => state.reservations.reservations);
-  // const isLoading = useSelector((state) => state.reservations.isLoading);
+  // console.log(reservations);
 
   // useEffect(() => {
-  //   dispatch(fetchReservations());
+  //   dispatch(fetchReservations( data[0], data[1] ));
   // }, [dispatch]);
 
-  // const handleDelete = (reservationID) => {
-  //   dispatch(deleteReservations({ reservationID }));
-  // }
+  useEffect(() => {
+    dispatch(fetchReservations());
+    dispatch(getCourses());
+  }, [dispatch]);
+
+  const handleDelete = (id) => {
+    dispatch(deleteReservations(id));
+  };
 
   return (
     <section className="w-full px-5 py-24 sm:py-16 justify-self-center sm:justify-self-end min-h-screen">
@@ -60,23 +68,31 @@ const MyBookings = () => {
                   {reservation.course_name}
                 </td>
                 <td className="px-3 py-4 text-sm font-normal text-left break-words bg-light text-textColor">
-                  {reservation.date}
+                  {reservation.day.slice(0, 10)}
                 </td>
                 <td className="px-3 py-4 text-sm font-normal text-left break-words bg-light text-textColor">
-                  {reservation.time}
+                  {reservation.times}
                 </td>
                 <td className="px-3 py-4 text-sm font-normal text-left break-words bg-light text-textColor">
                   {reservation.teacher_name}
                 </td>
 
                 <td className="px-3 py-4 text-sm font-semibold text-left text-red-500 underline break-words bg-light">
-                  <button type="button">Cancel</button>
+                  <button
+                    data-modal-target="popup-modal"
+                    data-modal-toggle="popup-modal"
+                    type="button"
+                    onClick={() => handleDelete(reservation.id)}
+                  >
+                    Cancel
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+
     </section>
   );
 };
