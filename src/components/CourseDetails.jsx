@@ -76,7 +76,7 @@ const CourseDetails = () => {
       <div className="teachers-section">
         <h2>Click to book a course Instructors :</h2>
         <div className="display-teachers">
-          {teachers.map((teacher) => (
+          {teachers?.map((teacher) => (
             <button type="button" className="teachers-details" onClick={() => handleRoute(teacher, data)} key={teacher.id}>
               <img className="teachers-img" src={teacher.image} alt="" />
               <p className="teachers-name">{teacher.name}</p>
