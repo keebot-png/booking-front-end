@@ -5,7 +5,7 @@ import courseRuducer from './features/courses/courseSlice';
 export default configureStore({
   reducer: {
     auth: authReducer,
-    courses: courseRuducer
+    courses: courseRuducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
 });
