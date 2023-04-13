@@ -1,3 +1,45 @@
+.course-page {
+  padding-top: 20px;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 0.5fr));
+  gap: 30px;
+  padding: 40px 0;
+}
+
+.course-card {
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  border-radius: 10px;
+}
+
+.course-card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.course-card p {
+  font-size: 13px;
+  margin-top: 10px;
+
+  /* border: 1px solid red; */
+  line-height: 25px;
+}
+
+.course-card .course-description {
+  padding: 20px;
+}
+
+.course-card .see-more {
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
+  color: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
 .course-display {
   width: 100%;
 
@@ -11,10 +53,13 @@
 }
 
 .course-img-div {
-  text-align: center;
   margin-bottom: 30px;
 
   /* border: 1px solid red; */
+}
+
+.course-img-div h2 {
+  margin-right: 0;
 }
 
 .course-img-div,
@@ -23,7 +68,9 @@
 }
 
 .course-img-div img {
-  height: 200px;
+  height: 300px;
+  margin-right: 0;
+  margin-bottom: 20px;
 }
 
 .course-details {
@@ -78,24 +125,37 @@
   font-size: 12px;
 }
 
+.teachers-details {
+  text-align: left;
+}
+
 .teachers-details img {
-  border-radius: 50%;
-  height: 60px;
+  height: 70px;
+  width: 80px;
 }
 
 @media (min-width: 768px) {
+  .course-page {
+    padding-top: 0;
+  }
+
   .course-display {
     padding: 30px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     gap: 20px;
   }
 
   .course-img-div {
-    text-align: center;
+    display: flex;
     margin-bottom: 0;
+  }
+
+  .course-img-div h2 {
+    margin-bottom: 15px;
+  }
+
+  .course-img-div img {
+    margin-bottom: 0;
+    margin-right: 50px;
   }
 
   .teachers-section h2 {
@@ -115,5 +175,12 @@
   .teachers-details {
     text-align: center;
     margin-right: 30px;
+    border: 1px solid #70e000;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+  }
+
+  .teachers-details:hover {
+    scale: 1.15;
   }
 }

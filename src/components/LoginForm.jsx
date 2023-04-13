@@ -21,7 +21,7 @@ const LoginForm = () => {
   };
 
   if (token) {
-    return <Navigate to="/dashboard" replace state={{ from: location }} />;
+    return <Navigate to="/courses" replace state={{ from: location }} />;
   }
 
   return (
