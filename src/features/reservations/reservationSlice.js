@@ -6,19 +6,18 @@
 const initialState = {
     reservations: [
       {
-        "day": "Monday",
+        "date": "11/03/2023",
         "time": "11:00am",
         "course_name": "React.js",
         "teacher_name": "Wesley"
       },
 
       {
-        "day": "Monday",
+        "date": "17/03/2023",
         "time": "11:00am",
         "course_name": "Node.js",
         "teacher_name": "Shaddai"
       }
-
 
     ],
     // isLoading: false,
