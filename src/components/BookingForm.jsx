@@ -25,10 +25,12 @@ const BookingForm = ({ teacherInfo, courseInfo }) => {
     e.preventDefault();
     const reservation = {
       day: startDate,
-      time: checkboxes,
+      times: checkboxes,
       course_id: courseInfo.id,
       teacher_id: teacherInfo.id,
     };
+
+    // console.log(reservation)
 
     dispatch(addReservations(reservation));
   };
