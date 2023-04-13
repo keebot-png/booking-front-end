@@ -27,15 +27,14 @@ const CourseDetails = () => {
 
   const dispatch = useDispatch();
 
-  const fetchTeachers = async () => {
-    const teachersData = await dispatch(getTeachers(data.id));
-
-    return setTeachers(teachersData.payload);
-  };
-
   useEffect(() => {
+    const fetchTeachers = async () => {
+      const teachersData = await dispatch(getTeachers(data.id));
+
+      return setTeachers(teachersData.payload);
+    };
     fetchTeachers();
-  }, []);
+  }, [data.id, dispatch]);
 
   return (
     <div className="course-page">
