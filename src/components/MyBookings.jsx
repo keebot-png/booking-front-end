@@ -1,8 +1,7 @@
 // import React, { useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import { useDispatch, useSelector } from "react-redux";
-import {  useSelector } from "react-redux";
-import DeleteModal from "./DeleteModal";
+import { useSelector } from 'react-redux';
 
 // import {
 //   deleteReservations,
@@ -12,7 +11,7 @@ import DeleteModal from "./DeleteModal";
 const MyBookings = () => {
   // const dispatch = useDispatch();
   const reservations = useSelector((state) => state.reservations.reservations);
-  const isLoading = useSelector((state) => state.reservations.isLoading);
+  // const isLoading = useSelector((state) => state.reservations.isLoading);
 
   // useEffect(() => {
   //   dispatch(fetchReservations());
@@ -55,8 +54,8 @@ const MyBookings = () => {
             </tr>
           </thead>
           <tbody>
-            {reservations.map((reservation,index) => (
-              <tr key={index}>
+            {reservations.map((reservation) => (
+              <tr key={reservation.id}>
                 <td className="px-3 py-4 text-sm font-normal text-left break-words bg-light text-textColor">
                   {reservation.course_name}
                 </td>
@@ -80,8 +79,6 @@ const MyBookings = () => {
       </div>
     </section>
   );
-
-
 };
 
 export default MyBookings;
