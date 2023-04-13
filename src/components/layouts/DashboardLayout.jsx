@@ -19,7 +19,9 @@ function DashboardLayout() {
 
   return (
     <>
-      <div className="flex justify-end mr-10 ">
+      <Sidebar />
+      <div className="body">
+              <div className="flex justify-end mr-10 ">
         <button
           type="button"
           onClick={handlelogout}
@@ -28,8 +30,6 @@ function DashboardLayout() {
           Logout
         </button>
       </div>
-      <Sidebar />
-      <div className="body">
         <Outlet />
       </div>
     </>

@@ -9,7 +9,7 @@ import HomePage from './components/Homepage';
 import MyBookings from './components/MyBookings';
 import Teachers from './components/Teachers';
 import BookingForm from './components/BookingForm';
-import Course from './components/Course';
+import CourseDetails from './components/CourseDetails';
 import './stylesheets/sidebar.css';
 import './stylesheets/index.css';
 import './stylesheets/App.css';
@@ -35,11 +35,11 @@ function App() {
           <Route path="/" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route element={<DashboardLayout />}>
-            <Route path="/dashboard" element={<HomePage />} />
+            <Route path="/courses" element={<HomePage />} />
             <Route path="/my-bookings" element={<MyBookings />} />
             <Route path="/booking-form" element={<BookingForm />} />
             <Route path="/teachers" element={<Teachers />} />
-            <Route path="/course" element={<Course />} />
+            <Route path="/courses/:id" element={<CourseDetails />} />
           </Route>
         </Routes>
       </AuthProvider>

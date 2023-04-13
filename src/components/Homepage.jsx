@@ -29,7 +29,7 @@ function Homepage() {
 
   useEffect(() => {
     dispatch(getCourses());
-  }, [dispatch]);
+  }, [dispatch, courses.length]);
 
   console.log(courses)
 
@@ -37,6 +37,7 @@ function Homepage() {
     <div>
         {courses.length ? <CourseList courses={courses} />
     : <p>{status}</p>}
+    {/* <h1>Courses</h1> */}
     </div>
   );
 }
