@@ -10,6 +10,7 @@ import MyBookings from './components/MyBookings';
 import Teachers from './components/Teachers';
 import BookingForm from './components/BookingForm';
 import CourseDetails from './components/CourseDetails';
+import TeachersDetails from './components/TeachersDetails';
 import './stylesheets/sidebar.css';
 import './stylesheets/index.css';
 import './stylesheets/App.css';
@@ -40,6 +41,7 @@ function App() {
             <Route path="/booking-form" element={<BookingForm />} />
             <Route path="/teachers" element={<Teachers />} />
             <Route path="/courses/:id" element={<CourseDetails />} />
+            <Route path="/courses/:id/:teacher" element={<TeachersDetails />} />
           </Route>
         </Routes>
       </AuthProvider>

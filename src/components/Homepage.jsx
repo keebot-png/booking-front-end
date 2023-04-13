@@ -2,10 +2,9 @@
 // import { useSelector, useDispatch } from 'react-redux';
 // import getCourses from '../features/courses/courseApi';
 
-
 // const Homepage = () => {
 
-//   const courses = useSelector(state => state.courses.courses) 
+//   const courses = useSelector(state => state.courses.courses)
 //   console.log(courses)
 
 //   return (
@@ -24,22 +23,19 @@ import CourseList from './CourseList';
 
 function Homepage() {
   const dispatch = useDispatch();
-  const courses = useSelector(state => state.courses.courses);
-  const status = useSelector(state => state.courses.status);
+  const courses = useSelector((state) => state.courses.courses);
+  const status = useSelector((state) => state.courses.status);
 
   useEffect(() => {
     dispatch(getCourses());
   }, [dispatch, courses.length]);
 
-  console.log(courses)
-
   return (
     <div>
-        {courses.length ? <CourseList courses={courses} />
-    : <p>{status}</p>}
-    {/* <h1>Courses</h1> */}
+      {courses.length ? <CourseList courses={courses} />
+        : <p>{status}</p>}
     </div>
   );
 }
 
-export default Homepage
+export default Homepage;
