@@ -51,6 +51,11 @@
   cursor: pointer;
 }
 
+.date-input {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
 @media (min-width: 768px) {
   .time-table {
     flex-direction: row;

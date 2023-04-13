@@ -28,7 +28,7 @@ const BookingForm = ({ teacherInfo, courseInfo }) => {
         <div className="available-days">
           <h3>Choose a day</h3>
           <div>
-            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+            <DatePicker className='date-input' selected={startDate} onChange={(date) => setStartDate(date)} />
           </div>
         </div>
         <div className="available-times">
