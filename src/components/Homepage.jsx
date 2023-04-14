@@ -14,6 +14,7 @@ function Homepage() {
 
   return (
     <div>
+      <h1>Welcome to Educateme</h1>
       {courses.length ? <CourseList courses={courses} />
         : <p>{status}</p>}
     </div>

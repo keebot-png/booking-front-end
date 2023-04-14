@@ -10,7 +10,6 @@ import { getCourses } from '../features/courses/courseApi';
 const MyBookings = () => {
   const dispatch = useDispatch();
   const reservations = useSelector((state) => state.reservations.reservations);
- console.log("reservations:", reservations)
   useEffect(() => {
     dispatch(fetchReservations());
     dispatch(getCourses());

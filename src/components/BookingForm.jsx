@@ -35,12 +35,6 @@ const BookingForm = ({ teacherInfo, courseInfo }) => {
       teacher_id: teacherInfo.id,
     };
 
-    // console.log(reservation)
-
-    //   dispatch(addReservations(reservation));
-    //   navigate('/my-bookings', { state: [reservation.course_id, reservation.teacher_id] });
-    // };
-
     dispatch(addReservations(reservation));
     navigate('/my-bookings');
   };
@@ -48,18 +42,19 @@ const BookingForm = ({ teacherInfo, courseInfo }) => {
   return (
     <form className="booking-form" onSubmit={handleFormSubmit}>
       <h2 className="container" style={{ color: '#70e000' }}>
-        Book a session with
+        Book a session with&nbsp;
         <span style={{ color: 'black' }}>{teacherInfo.name}</span>
       </h2>
       <div className="container booking-details">
         <h3>Booking details</h3>
         <p>
-          Name of course:
+          Name of course: &nbsp;
           <span className="emphasis">{courseInfo.title}</span>
         </p>
         <p>
-          Hourly rating for
+          Hourly rating for&nbsp;
           {teacherInfo.name}
+&nbsp;
           :
           <span className="emphasis">$50</span>
         </p>

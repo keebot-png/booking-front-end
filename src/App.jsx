@@ -28,7 +28,7 @@ AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <AuthProvider>

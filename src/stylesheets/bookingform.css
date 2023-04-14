@@ -5,7 +5,7 @@
 
 .booking-form {
   width: 100%;
-  max-width: 450px;
+  max-width: 500px;
   margin-right: auto;
 }
 
@@ -74,6 +74,7 @@
   }
 
   .teachers-det img {
-    width: 250px;
+    width: 300px;
+    margin-bottom: 20px;
   }
 }

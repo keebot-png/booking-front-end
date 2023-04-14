@@ -11,15 +11,15 @@ const TeachersDetails = () => {
       <div className="teachers-det">
         <img src={data.teacher.image} alt="" />
         <h2>
-          Name:
+          Name:&nbsp;
           {data.teacher.name}
         </h2>
         <p>
-          Professional summary:
+          Professional summary:&nbsp;
           {data.teacher.professional_summary}
         </p>
         <p>
-          Years of Experience:
+          Years of Experience:&nbsp;
           {data.teacher.years_of_experience}
           years
         </p>
