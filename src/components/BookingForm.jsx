@@ -35,12 +35,6 @@ const BookingForm = ({ teacherInfo, courseInfo }) => {
       teacher_id: teacherInfo.id,
     };
 
-    // console.log(reservation)
-
-    //   dispatch(addReservations(reservation));
-    //   navigate('/my-bookings', { state: [reservation.course_id, reservation.teacher_id] });
-    // };
-
     dispatch(addReservations(reservation));
     navigate('/my-bookings');
   };

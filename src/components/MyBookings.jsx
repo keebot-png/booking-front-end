@@ -6,19 +6,10 @@ import {
 } from '../features/reservations/reservationPost';
 import { getCourses } from '../features/courses/courseApi';
 
-// import {
-//   deleteReservations,
-//   fetchReservations,
-// } from "../features/reservations/reservationSlice";
 
 const MyBookings = () => {
   const dispatch = useDispatch();
   const reservations = useSelector((state) => state.reservations.reservations);
-  // console.log(reservations);
-
-  // useEffect(() => {
-  //   dispatch(fetchReservations( data[0], data[1] ));
-  // }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchReservations());

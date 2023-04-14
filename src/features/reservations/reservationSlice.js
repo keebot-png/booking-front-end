@@ -1,5 +1,3 @@
-//  import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import axiosInstance from "../../axiosConfig";
 import { createSlice } from '@reduxjs/toolkit';
 import { deleteReservations, fetchReservations } from './reservationPost';
 
