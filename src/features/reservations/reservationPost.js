@@ -20,7 +20,8 @@ export const fetchReservations = createAsyncThunk(
 export const deleteReservations = createAsyncThunk(
   'reservations/deleteReservations',
   async (reservation) => {
-    const response = await axiosInstance.delete(`/api/v1/reservations/${reservation}`);
-    return response;
+    await axiosInstance.delete(`/api/v1/reservations/${reservation}`);
+    return reservation;
+
   },
 );

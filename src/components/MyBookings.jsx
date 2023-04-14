@@ -10,7 +10,6 @@ import { getCourses } from '../features/courses/courseApi';
 const MyBookings = () => {
   const dispatch = useDispatch();
   const reservations = useSelector((state) => state.reservations.reservations);
-
   useEffect(() => {
     dispatch(fetchReservations());
     dispatch(getCourses());
@@ -41,9 +40,6 @@ const MyBookings = () => {
                 Date
               </th>
               <th className="p-3 text-sm font-semibold text-left bg-thead whitespace-nowrap text-textHeading">
-                Time
-              </th>
-              <th className="p-3 text-sm font-semibold text-left bg-thead whitespace-nowrap text-textHeading">
                 Teacher
               </th>
 
@@ -54,15 +50,14 @@ const MyBookings = () => {
           </thead>
           <tbody>
             {reservations.map((reservation) => (
+
               <tr key={reservation.id}>
                 <td className="px-3 py-4 text-sm font-normal text-left break-words bg-light text-textColor">
+                  
                   {reservation.course_name}
                 </td>
                 <td className="px-3 py-4 text-sm font-normal text-left break-words bg-light text-textColor">
                   {reservation.day.slice(0, 10)}
-                </td>
-                <td className="px-3 py-4 text-sm font-normal text-left break-words bg-light text-textColor">
-                  {reservation.times}
                 </td>
                 <td className="px-3 py-4 text-sm font-normal text-left break-words bg-light text-textColor">
                   {reservation.teacher_name}
