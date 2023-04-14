@@ -13,15 +13,13 @@ body {
   color: #374151;
 }
 
-.body {
-  padding: 40px 5%;
-}
-
 img {
   max-width: 100%;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 900;
 }
 

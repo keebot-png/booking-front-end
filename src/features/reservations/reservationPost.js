@@ -22,6 +22,5 @@ export const deleteReservations = createAsyncThunk(
   async (reservation) => {
     await axiosInstance.delete(`/api/v1/reservations/${reservation}`);
     return reservation;
-
   },
 );

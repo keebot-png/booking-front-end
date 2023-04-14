@@ -28,25 +28,23 @@ AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-const App = () => {
-  return (
-    <BrowserRouter>
-      <AuthProvider>
-        <Routes>
-          <Route path="/" element={<LoginForm />} />
-          <Route path="/register" element={<RegisterForm />} />
-          <Route element={<DashboardLayout />}>
-            <Route path="/courses" element={<HomePage />} />
-            <Route path="/my-bookings" element={<MyBookings />} />
-            <Route path="/booking-form" element={<BookingForm />} />
-            <Route path="/teachers" element={<Teachers />} />
-            <Route path="/courses/:id" element={<CourseDetails />} />
-            <Route path="/courses/:id/:teacher" element={<TeachersDetails />} />
-          </Route>
-        </Routes>
-      </AuthProvider>
-    </BrowserRouter>
-  );
-}
+const App = () => (
+  <BrowserRouter>
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<LoginForm />} />
+        <Route path="/register" element={<RegisterForm />} />
+        <Route element={<DashboardLayout />}>
+          <Route path="/courses" element={<HomePage />} />
+          <Route path="/my-bookings" element={<MyBookings />} />
+          <Route path="/booking-form" element={<BookingForm />} />
+          <Route path="/teachers" element={<Teachers />} />
+          <Route path="/courses/:id" element={<CourseDetails />} />
+          <Route path="/courses/:id/:teacher" element={<TeachersDetails />} />
+        </Route>
+      </Routes>
+    </AuthProvider>
+  </BrowserRouter>
+);
 
 export default App;

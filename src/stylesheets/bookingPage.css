@@ -1,0 +1,9 @@
+@media (max-width: 640px) {
+  thead {
+    display: none;
+  }
+
+  tbody {
+    gap: 20px;
+  }
+}
