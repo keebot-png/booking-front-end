@@ -8,7 +8,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-    - [Website Mockup 📱 💻 🖥️](#screenshots)
     - [🖺 Entity Relationship Diagram](#er-diagram)
   - [<img src="https://cdn-icons-png.flaticon.com/512/5360/5360804.png" width="23" height="20"/> Kanban Board](#kanban-board)
   - [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/539px-React-icon.svg.png" width="23" height="20"/> React Frontend](#react-frontend)
@@ -129,13 +128,6 @@ To run the project on the frontend, execute the following command:
    npm run dev  # to run the server on default port 3000
    # to be able to access the database
 ```
-
-Run tests
-```
-rspec spec/models
-rspec spec/routes
-```
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
@@ -213,10 +205,6 @@ I would like to thank:
 - **How I can install rails?**
 
   - You can follow the [official guide](https://guides.rubyonrails.org/getting_started.html#installing-rails) to install rails. If you have gem installed, you can run `gem install rails` to install rails.
-
-- **How I can run tests?**
-  
-    - After cloning the repository, run `bundle` and then run `rspec` to run the tests. 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
