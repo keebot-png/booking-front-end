@@ -30,7 +30,7 @@ const Sidebar = () => {
             <div className="mobile-menu-nav">
               <li><NavLink to="/courses">Home</NavLink></li>
               <li><NavLink to="/my-bookings">My Bookings</NavLink></li>
-              <li><NavLink to="/booking-form">Booking Form</NavLink></li>
+              {/* <li><NavLink to="/booking-form">Booking Form</NavLink></li> */}
             </div>
           ) : ''}
       </div>
@@ -41,8 +41,8 @@ const Sidebar = () => {
         <ul>
           <li><NavLink to="/courses">Home</NavLink></li>
           <li><NavLink to="/my-bookings">My Bookings</NavLink></li>
-          <li><NavLink to="/booking-form">Booking Form</NavLink></li>
-          <li><NavLink to="/teachers">Teachers</NavLink></li>
+          {/* <li><NavLink to="/booking-form">Booking Form</NavLink></li> */}
+          {/* <li><NavLink to="/teachers">Teachers</NavLink></li> */}
         </ul>
         <div className="sidebar-footer">
           <div className="social-media">
