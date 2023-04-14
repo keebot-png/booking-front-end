@@ -59,7 +59,8 @@ const BookingForm = ({ teacherInfo, courseInfo }) => {
         </p>
         <p>
           Hourly rating for&nbsp;
-          {teacherInfo.name}&nbsp;
+          {teacherInfo.name}
+&nbsp;
           :
           <span className="emphasis">$50</span>
         </p>
